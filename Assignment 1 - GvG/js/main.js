@@ -26,7 +26,7 @@ window.onload = function() {
         bmd.ctx.fillStyle = '#ff0000';
         bmd.ctx.fill();
 
-        let world = game.add.sprite(256, 256, bmd);
+        let world = game.add.sprite(256, 256, bitWorld);
         
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
