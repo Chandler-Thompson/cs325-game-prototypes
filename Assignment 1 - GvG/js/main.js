@@ -21,10 +21,10 @@ window.onload = function() {
     
     function create() {
         let bitWorld = game.add.bitmapData();
-        bmd.ctx.beginPath();
-        bmd.ctx.rect(0,0,128,128);
-        bmd.ctx.fillStyle = '#ff0000';
-        bmd.ctx.fill();
+        bitWorld.ctx.beginPath();
+        bitWorld.ctx.rect(0,0,128,128);
+        bitWorld.ctx.fillStyle = '#ff0000';
+        bitWorld.ctx.fill();
 
         let world = game.add.sprite(256, 256, bitWorld);
         
