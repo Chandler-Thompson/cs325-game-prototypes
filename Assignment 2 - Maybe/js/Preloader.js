@@ -27,10 +27,10 @@ GameStates.makePreloader = function( game ) {
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             //	+ lots of other required assets here
             game.load.image( 'transparent', 'assets/tile_transparent.png' );
-            game.load.image( 'cursorFollower', 'assets/tile_CursorFollower.png' );
+            game.load.image( 'cursorFollower', 'assets/tile_cursorfollower.png' );
             // load a tilemap and call it 'map'.
             // from .json file
-            game.load.tilemap('map', 'assets/tilemap_EndGame.json', null, Phaser.Tilemap.TILED_JSON);
+            game.load.tilemap('map', 'assets/tilemap_endgame.json', null, Phaser.Tilemap.TILED_JSON);
             // alternatively, from .csv file
             //game.load.tilemap('map', 'assets/tilemap_example.csv', null, Phaser.Tilemap.CSV);
             
