@@ -8,7 +8,7 @@ GameStates.makeMainMenu = function( game, shared ) {
     function startGame(pointer) {
 
         //	And start the actual game
-        game.state.start('Game', true, true);
+        game.state.start('Game', true, false);
 
     }
     

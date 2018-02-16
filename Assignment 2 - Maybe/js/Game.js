@@ -12,7 +12,7 @@ GameStates.makeGame = function( game, shared ) {
     let xZero = 0;
     let yZero = 0;
     
-    let buggyXOffset = 3;
+    let buggyXOffset = 6;
 
     //x and y coordinates of currently selected node
     let selectedX = -1;
@@ -49,12 +49,10 @@ GameStates.makeGame = function( game, shared ) {
     
         create: function () {
     
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-            
-            // Create the map. 
+            // Create the map
             map = game.add.tilemap('map');
             // for csv files specify the tile size.
-            //map = game.add.tilemap('map', 32, 32);
+            //map = game.add.tilemap('map', 64, 64);
             
             //add tiles
             map.addTilesetImage('tiles');
@@ -128,7 +126,7 @@ GameStates.makeGame = function( game, shared ) {
                 moveUnit(units[5], 0, 5);
             }
 
-            if(game.input.activePointer.middleButton.isDown && !selecting){
+            if(game.input.activePointer.rightButton.isDown && !selecting){
 
                 selecting = true;
 
@@ -143,15 +141,15 @@ GameStates.makeGame = function( game, shared ) {
 
                 console.log("Selected: ("+selectedX+","+selectedY+")");
 
-            }else if(game.input.activePointer.middleButton.isUp)
+            }else if(game.input.activePointer.rightButton.isUp)
                 selecting = false;
 
             if(game.input.activePointer.leftButton.isDown && !shooting){
 
                 shooting = true;
 
-                let mouseX = (game.input.activePointer.clientX/64>>0) - buggyXOffset;//for some reason there are "tiles" to the left of the board
-                let mouseY = game.input.activePointer.clientY/64>>0;
+                let mouseX = (game.input.activePointer.worldX/64>>0) - buggyXOffset;//for some reason there are "tiles" to the left of the board
+                let mouseY = game.input.activePointer.worldY/64>>0;
 
                 if( !(selectedX == -1 || selectedY == -1) && //nothing selected
                     !(selectedX == mouseX && selectedY == mouseY)){ //new spot is same as old spot
@@ -201,7 +199,7 @@ GameStates.makeGame = function( game, shared ) {
             // in X or Y.
             // This function returns the rotation angle that makes it visually match its
             // new trajectory.
-            bouncy.rotation = game.physics.arcade.moveToPointer(bouncy, 500, game.input.activePointer, 500);
+            //bouncy.rotation = game.physics.arcade.moveToPointer(bouncy, 500, game.input.activePointer, 500);
         }
     };
 

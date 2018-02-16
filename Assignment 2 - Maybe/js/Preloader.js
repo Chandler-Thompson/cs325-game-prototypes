@@ -32,8 +32,7 @@ GameStates.makePreloader = function( game ) {
             // from .json file
             game.load.tilemap('map', 'assets/tilemap_endgame.json', null, Phaser.Tilemap.TILED_JSON);
             // alternatively, from .csv file
-            //game.load.tilemap('map', 'assets/tilemap_example.csv', null, Phaser.Tilemap.CSV);
-            
+            //game.load.tilemap('map', 'assets/tilemap.csv', null, Phaser.Tilemap.CSV);
             //load tiles for map
             game.load.image('tiles', 'assets/tiles_environ.png');
             //load tiles for units
