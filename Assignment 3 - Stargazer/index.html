@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser Basic Project Template</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/Game.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Stargazer</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+The artwork
+</li>
+
+<li><strong>Technical Merit:</strong>
+finally figured out how to center the tilemap in the screen, when the tilemap doesn't take up the entire screen
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype? - Tilemaps can't be moved at all, the camera has to be moved to "center" the tilemap
+What was the easiest or hardest part of making it? - The easiest part was actually making the game, the hardest was understanding the camera movement with the tilemap
+</li>
+
+<li><strong>Prototype Assets:</strong>
+Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+<ul>
+<li>Loading screen: Prof. Gingold</li>
+<li>Space Fighter: self-made</li>
+<li>Button: self-made</li>
+<li>Cards: self-made</li>
+<li>Title screen: self-made</li>
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+<ul>
+<li>The code for this example is adapted from the <a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
+<li>This game most closely resembles a memory card game</li>
+</ul>
+</li>
+
+<li><strong>High Concept:</strong>
+Match the cards.
+</li>
+
+<li><strong>Theme:</strong>
+Stargazer
+</li>
+
+<li><strong>Mandated Variety:</strong>
+Mouse input, cards randomly placed, puzzle
+</li>
+
+<li><strong>Prototype Goal:</strong>
+continuation on messing with tilemaps
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+relaxed fun
+</li>
+
+<li><strong>Gameplay:</strong>
+A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+
+You can click the cards to reveal what they are, before they "turn over" and hide again. Every wrong guess decreases your score by another 10 points. Each second spent solving the puzzle decreases the end score by 1 point. There is also a little fighter that dive bombs your cursor, because why not.
+</li>
+
+<li><strong>Strategies:</strong>
+What player strategies do you expect will be effective at playing this game?
+going as fast as possible
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
+How will the dramatic tension interact with the gameplay tension?
+
+You're solving the mysteries of the universe, and the little fighter is trying his best to distract you from it.
+</li>
+
+<li><strong>Target Audience:</strong>
+A single sentence that describes the demographic you're trying to reach.
+relaxed gamers
+</li>
+
+<li><strong>Play Time:</strong>
+How long does your game take to play?
+a few seconds
+</li>
+
+</ul>
+</div>
+</body>
+</html>
