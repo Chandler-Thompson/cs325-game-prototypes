@@ -26,7 +26,7 @@ GameStates.makeMainMenu = function( game, shared ) {
             //	Naturally I expect you to do something significantly better :)
     
             music = game.add.audio('backgroundMusic');
-            //music.play();
+            music.play();
 
             if(shared.xWins == shared.plusWins)
                 game.add.sprite(64, 0, 'titlePage');
