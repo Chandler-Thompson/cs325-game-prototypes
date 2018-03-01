@@ -245,7 +245,7 @@ GameStates.makeGame = function( game, shared ) {
     function canSee(originX, originY, targetX, targetY){
         //y = mx + b
 
-        //sightMarker.clear();
+        sightMarker.clear();
 
         if(originX == -1 || originY == -1 || targetX == -1 || targetY == -1)
             return false;
