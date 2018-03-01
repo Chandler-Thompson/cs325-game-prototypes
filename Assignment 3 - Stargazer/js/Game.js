@@ -67,6 +67,7 @@ GameStates.makeGame = function( game, shared ) {
             ship.anchor.setTo(0.5, 0.5);
             game.physics.enable( ship, Phaser.Physics.ARCADE );
             ship.body.collideWorldBounds = true;
+
             var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
             title = game.add.text( 200, 75, "Current Score: " + shared.score + " | High Score: " + shared.highScore, style );
             title.fixedToCamera = true;

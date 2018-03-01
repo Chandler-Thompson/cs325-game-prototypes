@@ -41,8 +41,6 @@ GameStates.makeMainMenu = function( game, shared ) {
             scoreText.anchor.setTo(0.5, 0.5);
             scoreText.position.set(400, 225);
             scoreText.fixedToCamera = true;
-    
-            //game.camera.setPosition(-144, -128);//"center" camera on board
 
             playButton = game.add.button( 300, 400, 'playButton', startGame, null, 'over', 'out', 'down');
     
