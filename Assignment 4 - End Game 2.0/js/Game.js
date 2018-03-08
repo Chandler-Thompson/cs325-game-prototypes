@@ -245,21 +245,42 @@ GameStates.makeGame = function( game, shared ) {
     function canSee(originX, originY, targetX, targetY){
         //y = mx + b
 
-        sightMarker.clear();
+        console.log("shooter pos: (" + originX + "," + originY + ") | shooted pos: (" + targetX + "," + targetY + ")");
+
+        //sightMarker.clear();
 
         if(originX == -1 || originY == -1 || targetX == -1 || targetY == -1)
             return false;
 
-        let m = (targetY - originY)/(targetX - originX);
-        console.log(m);
+        let lineThing = game.add.graphics();
+        lineThing.lineStyle(2, 0xFF0000, 1);
+        lineThing.x = originX*64+64+32;
+        lineThing.y = originY*64+32;
 
-        //needs to be done so recursion doesn't check 
-        //starting square and return false 
-        //(because its not just a floor or the target)
-        let newX = (targetX > originX) ? originX+1 : (targetX < originX) ? originX-1 : originX;
-        let newY = (targetX == originX && targetY > originY) ? originY+1 : (targetX == originX && targetY < originY) ? originY-1 : (m*originX+originY)>>0;
+        lineThing.lineTo(targetX*64, -targetY*64+64);
 
-        return canSeeRecurse(newX, newY, targetX, targetY, m, originY, 0);
+        let line = new Phaser.Line();
+        line.start.set(originX*64, originY*64);
+        line.end.set(targetX*64, targetY*64);
+
+        let hits = layer1.getRayCastTiles(line, 10, false, false);
+
+        for(let i = 0; i < hits.length; i++){
+            sightMarker.drawRect(hits[i].x*64+64, hits[i].y*64, 64, 64);
+            if(locations[hits[i].y*width+hits[i].x] == -2)
+                return false;
+        }
+
+        // let m = (targetY - originY)/(targetX - originX);
+        // console.log(m);
+
+        // //needs to be done so recursion doesn't check 
+        // //starting square and return false 
+        // //(because its not just a floor or the target)
+        // let newX = (targetX > originX) ? originX+1 : (targetX < originX) ? originX-1 : originX;
+        // let newY = (targetX == originX && targetY > originY) ? originY+1 : (targetX == originX && targetY < originY) ? originY-1 : (m*originX+originY)>>0;
+
+        // return canSeeRecurse(newX, newY, targetX, targetY, m, originY, 0);
 
     }
 

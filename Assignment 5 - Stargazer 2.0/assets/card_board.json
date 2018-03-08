@@ -1,0 +1,95 @@
+{ "height":2,
+ "layers":[
+        {
+         "data":[
+                  1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1
+                ],
+         "height":2,
+         "name":"5x2",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        },
+        {
+         "data":[
+                  1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1
+                ],
+         "height":4,
+         "name":"5x4",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+
+        },
+        {
+         "data":[
+                  1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1
+                ],
+         "height":5,
+         "name":"8x5",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":8,
+         "x":0,
+         "y":0
+
+        },
+        {
+         "data":[
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 1, 1, 1, 1, 1, 1, 1, 1
+                ],
+         "height":9,
+         "name":"9x9",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":9,
+         "x":0,
+         "y":0
+
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tileheight":64,
+ "tilesets":[
+        {
+         "columns":1,
+         "firstgid":1,
+         "image":"card_back.png",
+         "imageheight":64,
+         "imagewidth":48,
+         "margin":0,
+         "name":"cardBack",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":48,
+         "tilewidth":32
+        }],
+ "tilewidth":48,
+ "version":1,
+ "width":5
+}

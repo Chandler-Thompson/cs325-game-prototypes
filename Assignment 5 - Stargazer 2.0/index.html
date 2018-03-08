@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Stargazer 2.0</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/Game.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Stargazer 2.0</h2>
+
+<ul>
+	<li><strong>Originality:</strong>
+	The artwork
+	</li>
+
+	<li><strong>Technical Merit:</strong>
+		Implemented multiple levels with tile maps and replaced the old card files with generated text placed on top of a generic card back for less overall work on my part.
+		To keep from being limited to only 9 cards (numbers 1-9) I created an array of all lower-case letters, upper-case letters, and symbols on the keyboard.
+	</li>
+
+	<li><strong>Prototype Postmortem:</strong>
+	What did you learn from this prototype? - levels are extremely easy to implement on phaser's tilemaps.
+	What was the easiest or hardest part of making it? - The easiest part was implementing the different levels.
+	</li>
+
+	<li><strong>Prototype Assets:</strong>
+		Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+		<ul>
+			<li>Background music: Made by <a href="https://www.jamendo.com/track/120750/esprit-de-l-arbre_2">FRANCESCO</a></li>
+			<li>Bell sound: Made by <a href="http://www.orangefreesounds.com/">Orange Free Sounds</a></li>
+			<li>Loading screen: self-made</li>
+			<li>Loading bar: self-made</li>
+			<li>Space Fighter: self-made</li>
+			<li>Buttons: self-made</li>
+			<li>Cards: self-made</li>
+			<li>Title screen: self-made</li>
+		</ul>
+	</li>
+
+	<li><strong>Prototype Closest Other Game:</strong>
+		Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+		<ul>
+			<li>The code for this example is adapted from the <a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
+			<li>This game most closely resembles a memory card game</li>
+		</ul>
+	</li>
+
+	<li><strong>High Concept:</strong>
+	Match the cards.
+	</li>
+
+	<li><strong>Theme:</strong>
+	Stargazer
+	</li>
+
+	<li><strong>Mandated Variety:</strong>
+	Mouse input, cards randomly placed, puzzle
+	</li>
+
+	<li><strong>Prototype Goal:</strong>
+	continuation on messing with tilemaps and implementing multiple levels
+	</li>
+
+	<li><strong>Player Experience Goals:</strong>
+	relaxed fun
+	</li>
+
+	<li><strong>Gameplay:</strong>
+	A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+
+	You can click the cards to reveal what they are, before they "turn over" and hide again. Every wrong guess decreases your score by another 25 points. Each second spent solving the puzzle decreases the end score by 1 point. There are three levels: Easy, Medium, Hard, and a hidden level that is only revealed when the other three are beaten.
+	</li>
+
+	<li><strong>Strategies:</strong>
+	What player strategies do you expect will be effective at playing this game?
+	going as fast as possible
+	</li>
+
+	<li><strong>Story/Setting/Premise:</strong>
+	A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
+	How will the dramatic tension interact with the gameplay tension?
+
+	You're solving the mysteries of the universe.
+	</li>
+
+	<li><strong>Target Audience:</strong>
+	A single sentence that describes the demographic you're trying to reach.
+	relaxed gamers
+	</li>
+
+	<li><strong>Play Time:</strong>
+	How long does your game take to play?
+	10-15 mins to play all of it (There is a hidden bonus level if easy, medium, and hard are beaten)
+	</li>
+
+</ul>
+</div>
+</body>
+</html>
