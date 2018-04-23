@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>End Game 2.0</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/Game.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>End Game 2.0</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+The artwork and changing title screen of the game, based on who has the most wins
+</li>
+
+<li><strong>Technical Merit:</strong>
+Tile maps are used and camera is properly centered on the board. Title Screen background changes based on which team is winning, and started to implement proper line of sight
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype? - tile maps can be hard...and so is line of sight
+What was the easiest or hardest part of making it? - the hardest thing was creating all of the tile artwork
+</li>
+
+<li><strong>Prototype Assets:</strong>
+Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+<ul>
+<li>Loading screen: curtesy of Prof. Gingold</li>
+<li>Title background images: self-made</li>
+<li>Music: Sci_Fi_Industries' <a href="http://freemusicarchive.org/music/Sci_Fi_Industries/">Azimutez</a></li>
+<li>Button: self-made</li>
+<li>Tiles and units: self-made</li>
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+the combat in any civilization game
+<ul>
+<li>The code for this example is adapted from the <a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
+</ul>
+</li>
+
+<li><strong>High Concept:</strong>
+Kill the other team
+</li>
+
+<li><strong>Theme:</strong>
+Inspiration from "cyborg that thinks its human". I tried to make the tileset look sci-fi, though it looks more like glass panes.
+</li>
+
+<li><strong>Mandated Variety:</strong>
+Mouse, Board Games, Turn Based Strategy
+</li>
+
+<li><strong>Prototype Goal:</strong>
+Board game
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+quick tactical thinking to beat opponents
+</li>
+
+<li><strong>Gameplay:</strong>
+There are two teams. One yellow (X), and one green (+). Move a unit by clicking the middle mouse button on it to select it, and then left click on an empty square to move it. To shoot the other team, select one of your units and left click on an enemy unit. The bright red tiles are walls, and thus can't be shot through. Shooting can only be done vertically or horizontally. Last team standing wins!
+</li>
+
+<li><strong>Strategies:</strong>
+Cheating by taking multiple shots or movements in one turn.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+The idea is that there are only these floating balls left after some great war. They're still fighting each other, and they don't know or remember why. They just do what their programming tells them.
+</li>
+
+<li><strong>Target Audience:</strong>
+The turn-based-strategy audience
+</li>
+
+<li><strong>Play Time:</strong>
+Depends on the skill level difference in the players
+</li>
+
+</ul>
+</div>
+</body>
+</html>
