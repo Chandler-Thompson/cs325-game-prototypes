@@ -87369,9 +87369,10 @@ Phaser.Color = {
     hexToColor: function (hex, out) {
 
         // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-        hex = hex.replace(/^(?:#|0x)?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
-            return r + r + g + g + b + b;
-        });
+        //commented out because was causing errors and I personally don't use the shorthand
+        // hex = hex.replace(/^(?:#|0x)?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
+        //     return r + r + g + g + b + b;
+        // });
 
         var result = /^(?:#|0x)?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
