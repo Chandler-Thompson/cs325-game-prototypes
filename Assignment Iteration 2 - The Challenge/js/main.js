@@ -18,6 +18,7 @@ window.onload = function() {
     function preload() {
 
         game.load.image('bullet', 'assets/bullet.png');
+        game.load.image('wall', 'assets/tile_wall.png');
         game.load.image('player', 'assets/player.png');
         game.load.image('grid_space', 'assets/grid_space.png');
 
@@ -36,12 +37,15 @@ window.onload = function() {
     let bulletSpeed = 100;
     let numBullets = 0;
     let maxBullets = 0;
+    let numWalls = 0;
+    let maxWalls = 3;
     let gameOver = false;
 
     let prevMouseX = -1;
     let prevMouseY = -1;
 
     let bullets = [];
+    let walls = [];
     
     function create() {
 
@@ -114,11 +118,8 @@ window.onload = function() {
 
         }
 
-        //check oob (out of bounds) for each bullet [for cleanup]
+        //check oob (out of bounds) for each bullet[for cleanup]
         for(let i = 0; i < bullets.length; i++){
-
-            //console.log("("+bullets[i].x+","+bullets[i].y+")");
-
             //bullet is oob
             if((bullets[i].x >= gameWidth || bullets[i].x < 0) || (bullets[i].y >= gameHeight || bullets[i].y < 0)){
                 bullets[i].destroy();
@@ -126,32 +127,84 @@ window.onload = function() {
             }
         }
 
+        //check oob (out of bounds) for each wall [for cleanup]
+        for(let i = 0; i < walls.length; i++){
+            if((walls[i].x >= gameWidth || walls[i].x < 0) || (walls[i].y >= gameHeight || walls[i].y < 0)){
+                walls[i].destroy();
+                walls.splice(i, 1);//remove the one bullet
+            }
+        }
+
+        //the amount the mouse has moved (used purely for scoring purposes)
         let deltaMouse = Math.sqrt(Math.pow(game.input.mousePointer.x - prevMouseX, 2) + Math.pow(game.input.mousePointer.y - prevMouseY, 2));
 
-        if(!gameOver)
-            points += deltaMouse/100 * (((timeElapsed/10)>>0)+1);
-
+        //store current mouse position for checking against next time
         prevMouseX = game.input.mousePointer.x;
         prevMouseY = game.input.mousePointer.y;
 
-        game.physics.arcade.collide(bouncy, bullets, onCollide, null, this);
+        //check game over
+        if(!gameOver)
+            points += deltaMouse/100 * (((timeElapsed/10)>>0)+1);
 
+        //check for collision between "bouncy", bullets, and walls
+        game.physics.arcade.collide(bouncy, bullets, onCollide, null, this);
+        game.physics.arcade.collide(walls, bullets, onCollideWalls, null, this);
+        game.physics.arcade.collide(walls, bouncy, onCollideWalls, null, this);
+
+        //time that has elapsed since start of game
         timeElapsed = (gameTimer.seconds != 0) ? gameTimer.seconds:timeElapsed; 
         text.text = "Don't get shot! " + (timeElapsed>>0) + " seconds | " + (points>>0) + " points";
+
         // Accelerate the 'logo' sprite towards the cursor,
         // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
-        bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
+        //bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
 
+        //output "game over"
         if(gameOver){
             text.text = "Game Over! Press F5 to play again. \n[" + (timeElapsed>>0) + " seconds] [" + (points>>0) + " points]";
             text.x = game.world.centerX;
             text.y = game.world.centerY;
         }
 
+        //update to not move if no buttons pressed
+        bouncy.body.velocity = new Phaser.Point(0,0);
+
+        let velX = 0;
+        let velY = 0;
+        let fPressed = false;
+
+        if(game.input.keyboard.isDown(Phaser.Keyboard.W))//move up
+            velY += -500;
+        if(game.input.keyboard.isDown(Phaser.Keyboard.A))//move left
+            velX += -500;
+        if(game.input.keyboard.isDown(Phaser.Keyboard.S))//move down
+            velY += 500;
+        if(game.input.keyboard.isDown(Phaser.Keyboard.D))//move right
+            velX += 500;
+        if(!fPressed && game.input.keyboard.isDown(Phaser.Keyboard.F)){//place wall
+
+            console.log("Making wall...fPressed is: " + fPressed);  
+
+            fPressed = true;
+
+            walls.push(game.add.sprite(bouncy.body.x-64, bouncy.body.y-64, 'wall'));
+            game.physics.enable(walls[walls.length-1], Phaser.Physics.ARCADE);
+            walls[walls.length-1].body.moves = true;
+            numWalls++;
+
+        }else if(!game.input.keyboard.isDown(Phaser.Keyboard.F) && fPressed){
+            console.log("f no longer pressed!");
+            fPressed = false;
+        }
+
+        bouncy.body.velocity = new Phaser.Point(velX, velY);
+
     }
+
+    function onCollideWalls(obj1, obj2){}
 
     function onCollide(obj1, obj2){
         console.log("Game Over. You lasted " + timeElapsed + " seconds, and made " + points + " points.");
